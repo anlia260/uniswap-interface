@@ -18,7 +18,7 @@ export function getIsBraveWallet(): boolean {
 
 export function getIsSoulWallet(): boolean {
   //TODO
-  return window.ethereum?.isMetaMask ?? false
+  return window.ethereum?.isSoul ?? false
 }
 
 export function getIsMetaMaskWallet(): boolean {
