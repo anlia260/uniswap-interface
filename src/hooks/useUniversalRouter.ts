@@ -1,6 +1,6 @@
 import { TransactionResponse } from '@ethersproject/abstract-provider'
 import { BigNumber } from '@ethersproject/bignumber'
-import { t } from '@lingui/macro'
+// import { t } from '@lingui/macro'
 import { sendAnalyticsEvent } from '@uniswap/analytics'
 import { SwapEventName } from '@uniswap/analytics-events'
 import { Trade } from '@uniswap/router-sdk'
@@ -69,10 +69,10 @@ export function useUniversalRouterSwapCallback(
             formatSwapSignedAnalyticsEventProperties({ trade, txHash: response.hash })
           )
           if (tx.data !== response.data) {
-            sendAnalyticsEvent(SwapEventName.SWAP_MODIFIED_IN_WALLET, { txHash: response.hash })
-            throw new InvalidSwapError(
-              t`Your swap was modified through your wallet. If this was a mistake, please cancel immediately or risk losing your funds.`
-            )
+            // sendAnalyticsEvent(SwapEventName.SWAP_MODIFIED_IN_WALLET, { txHash: response.hash })
+            // throw new InvalidSwapError(
+            //   t`Your swap was modified through your wallet. If this was a mistake, please cancel immediately or risk losing your funds.`
+            // )
           }
           return response
         })
