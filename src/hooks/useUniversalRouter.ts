@@ -37,13 +37,14 @@ export function useUniversalRouterSwapCallback(
       if (!chainId) throw new Error('missing chainId')
       if (!provider) throw new Error('missing provider')
       if (!trade) throw new Error('missing trade')
-
+      console.log(trade,'1111')
       const { calldata: data, value } = SwapRouter.swapERC20CallParameters(trade, {
         slippageTolerance: options.slippageTolerance,
         deadlineOrPreviousBlockhash: options.deadline?.toString(),
         inputTokenPermit: options.permit,
         fee: options.feeOptions,
       })
+      console.log(data, value)
       const tx = {
         from: account,
         to: UNIVERSAL_ROUTER_ADDRESS(chainId),
@@ -68,16 +69,17 @@ export function useUniversalRouterSwapCallback(
             SwapEventName.SWAP_SIGNED,
             formatSwapSignedAnalyticsEventProperties({ trade, txHash: response.hash })
           )
-          if (tx.data !== response.data) {
-            sendAnalyticsEvent(SwapEventName.SWAP_MODIFIED_IN_WALLET, { txHash: response.hash })
-            throw new InvalidSwapError(
-              t`Your swap was modified through your wallet. If this was a mistake, please cancel immediately or risk losing your funds.`
-            )
-          }
+          // if (tx.data !== response.data) {
+          //   sendAnalyticsEvent(SwapEventName.SWAP_MODIFIED_IN_WALLET, { txHash: response.hash })
+          //   throw new InvalidSwapError(
+          //     t`Your swap was modified through your wallet. If this was a mistake, please cancel immediately or risk losing your funds.`
+          //   )
+          // }
           return response
         })
       return response
     } catch (swapError: unknown) {
+      console.log(1111111,swapError)
       if (swapError instanceof InvalidSwapError) throw swapError
       throw new Error(swapErrorToUserReadableMessage(swapError))
     }
