@@ -404,6 +404,7 @@ export default function Swap({ className }: { className?: string }) {
     if (!swapCallback) {
       return
     }
+    debugger
     if (stablecoinPriceImpact && !confirmPriceImpactWithoutFee(stablecoinPriceImpact)) {
       return
     }
@@ -430,6 +431,7 @@ export default function Swap({ className }: { className?: string }) {
         })
       })
       .catch((error) => {
+        console.log(error)
         setSwapState({
           attemptingTxn: false,
           tradeToConfirm,

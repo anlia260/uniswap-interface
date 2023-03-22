@@ -13,7 +13,7 @@ interface Window {
     // set by the Brave browser when using built-in wallet
     isBraveWallet?: true
     // set by the Soul Wallet when using built-in wallet
-    isSoulWallet?: true
+    isSoul?: true
     // set by the MetaMask browser extension (also set by Brave browser when using built-in wallet)
     isMetaMask?: true
     autoRefreshOnNetworkChange?: boolean
