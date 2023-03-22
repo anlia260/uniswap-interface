@@ -404,7 +404,6 @@ export default function Swap({ className }: { className?: string }) {
     if (!swapCallback) {
       return
     }
-    debugger
     if (stablecoinPriceImpact && !confirmPriceImpactWithoutFee(stablecoinPriceImpact)) {
       return
     }
