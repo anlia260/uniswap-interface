@@ -28,6 +28,8 @@ import TransactionUpdater from './state/transactions/updater'
 import UserUpdater from './state/user/updater'
 import ThemeProvider, { ThemedGlobalStyle } from './theme'
 import RadialGradientByChainUpdater from './theme/components/RadialGradientByChainUpdater'
+import { Web3OnboardProvider } from '@web3-onboard/react'
+import web3Onboard from './connection/onboard'
 
 if (window.ethereum) {
   window.ethereum.autoRefreshOnNetworkChange = false
@@ -71,7 +73,9 @@ createRoot(container).render(
                     <Updaters />
                     <ThemeProvider>
                       <ThemedGlobalStyle />
+                      <Web3OnboardProvider web3Onboard={web3Onboard}>
                       <App />
+                      </Web3OnboardProvider>
                     </ThemeProvider>
                   </BlockNumberProvider>
                 </ApolloProvider>

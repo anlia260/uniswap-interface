@@ -17,7 +17,7 @@ import { useDerivedSwapInfo } from 'state/swap/hooks'
 import styled, { useTheme } from 'styled-components/macro'
 import { colors } from 'theme/colors'
 import { flexRowNoWrap } from 'theme/styles'
-
+import {useConnectWallet} from '@web3-onboard/react'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 import {
   useCloseModal,
@@ -197,6 +197,7 @@ const CHEVRON_PROPS = {
 }
 
 function Web3StatusInner() {
+  const [{wallet}, connect] = useConnectWallet()
   const { account, connector, chainId, ENSName } = useWeb3React()
   const connectionType = getConnection(connector).type
   const {
@@ -281,7 +282,7 @@ function Web3StatusInner() {
         element={InterfaceElementName.CONNECT_WALLET_BUTTON}
       >
         <Web3StatusConnectWrapper faded={!account}>
-          <StyledConnectButton data-testid="navbar-connect-wallet" onClick={toggleWalletModal}>
+          <StyledConnectButton data-testid="navbar-connect-wallet" onClick={()=>{connect()}}>
             <Trans>Connect</Trans>
           </StyledConnectButton>
           <VerticalDivider />

@@ -236,11 +236,22 @@
     "workbox-navigation-preload": "^6.1.0",
     "workbox-precaching": "^6.1.0",
     "workbox-routing": "^6.1.0",
-    "zustand": "^4.0.0-rc.1"
+    "zustand": "^4.0.0-rc.1",
+    "@walletconnect/jsonrpc-provider": "^1.0.6",
+    "@web3-onboard/coinbase": "^2.2.0",
+    "@web3-onboard/dcent": "^2.2.2",
+    "@web3-onboard/enkrypt": "^2.0.0",
+    "@web3-onboard/gnosis": "^2.1.5",
+    "@web3-onboard/injected-wallets": "git+https://github.com/anlia260/inject-wallet.git",
+    "@web3-onboard/keystone": "^2.3.2",
+    "@web3-onboard/ledger": "^2.3.2",
+    "@web3-onboard/react": "^2.5.3",
+    "@web3-onboard/sequence": "^2.0.4",
+    "@web3-onboard/tallyho": "^2.0.1",
+    "@web3-onboard/walletconnect": "^2.2.2"
   },
   "engines": {
     "npm": "please-use-yarn",
-    "node": "14",
     "yarn": ">=1.22"
   }
 }
